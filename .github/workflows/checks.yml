@@ -15,10 +15,10 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-      - name: Install deps
-        run: |
-        python -m pip install --upgrade pip \
-        pip install flake8 \
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install flake8 and reguirements
+        run: pip install flake8
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Lint with flake8
         run: |
